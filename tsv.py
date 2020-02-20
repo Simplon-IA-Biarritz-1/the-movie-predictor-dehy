@@ -21,6 +21,7 @@ class TSV:
             return None
 
         lines.insert(0, self.header)
-        lines_as_dict = csv.DictReader(lines, delimiter='\t')
+        lines_as_dict = csv.DictReader(
+            lines, delimiter='\t', quoting=csv.QUOTE_NONE)
 
         return lines_as_dict
