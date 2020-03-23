@@ -3,7 +3,7 @@ import csv
 class TSV:
     def __init__(self, filepath):
         # TODO check if the file exists
-        self.fh = open(filepath, 'rt')
+        self.fh = open(filepath, 'rt', -1, 'utf-8')
         self.header = self.fh.readline()
         # TODO What if there is no header in the file?
 

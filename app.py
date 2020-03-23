@@ -33,15 +33,15 @@ if __name__ == '__main__':
     db = DB('themoviepredictor')
     db.reset()
 
-    filepaths = glob.glob('./imdb_datasets/*.tsv')
+    filepaths = glob.glob(os.path.join('.', 'imdb_datasets', '*.tsv'))
     #filenames = ['name.basics.tsv', 'title.basics.tsv', 'title.principals.tsv']
     #filepaths = ['./imdb_datasets/title.principals.tsv']
     for filepath in filepaths:
-        filename = filepath.split('/').pop()
+        filename = filepath.split(os.sep).pop()
         line_count = wc(filepath)
         collection_name = filename[:-4]
         class_name = filename_to_class(filename)
-        tsv = TSV(f'./imdb_datasets/{filename}')
+        tsv = TSV(os.path.join('.', 'imdb_datasets', filename))
         print(f'x Importing {filename} ({line_count} lines)...')
         executed_lines = 0
         while True:
